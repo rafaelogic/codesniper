@@ -1,72 +1,104 @@
 ﻿<!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta description="Test your CSS, HTML or JavaScript online with CodeSniper code editor.">
-    <meta name="keywords" content="online javascript editor, testing javascript online, online ide, online code editor, html, css, online editor" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="author" content="rafaelogic" />
-    <meta name="copyright" content="share alike" />
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta description="Test your CSS, HTML or JavaScript online with CodeSniper code editor.">
+        <meta name="keywords" content="online javascript editor, testing javascript online, online ide, online code editor, html, css, online editor" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="author" content="rafaelogic" />
+        <meta name="copyright" content="share alike" />
 
-    <title>Code Sniper</title>
+        <title>Code Sniper</title>
 
-    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" >
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.css" />
-    <link type="text/css" rel="stylesheet" href="https://codemirror.net/theme/dracula.css" />
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-<div class="container-fluid">
-    <div id="nav-bar" class="row">
-        <h1 id="title" class="text-center"><a href="">[=C]ode Sn;per=-</a></h1>
-        <a href="#" id="btnRun" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-play"></i> Run</a>
-    </div>
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" />
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.css" />
+        <link type="text/css" rel="stylesheet" href="https://codemirror.net/theme/dracula.css" />
+        <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div id="nav-bar">
+                <h1 id="title" class="text-center"><a href="">[=C]ode Sn;per=-</a></h1>
+                <a href="#" id="btnRun" class="btn btn-secondary btn-block"><i class="far fa-play-circle"></i> Run</a>
+            </div>
 
-    <div id="code-area" class="row">
-        <div id="area1" class="col-xs-12">
-            <div id="htmlArea" class="col-xs-4 container-code">
-                <span><strong>HTML</strong></span>
-                <textarea id="htmlCode" ></textarea>
+            <div class="row">
+                <div id="resultArea" class="col-md-6">
+                    <span id="tre"><strong><i class="fas fa-desktop"></i> Result</strong></span>&nbsp;&nbsp;&nbsp; | <a href="#" id="fullscreen" class="badge badge-secondary"><i class="fas fa-arrows-alt"></i> fullscreen</a>
+                    <iframe id="resultViewer"></iframe>
+
+                    <div class="input-group">
+                        <input type="text" id="xternalUrl" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success smbtn" type="button" id="addUrl"><i class="fas fa-plus-circle"></i></button>
+                        </span>
+                    </div>
+
+                    <label>External Assets Used</label>
+                    <div id="xternal-lists"></div>
+                </div>
+
+                <div id="codeArea" class="col-md-6">
+                    <ul class="nav nav-tabs" id="langTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#html-area" role="tab"><i class="fab fa-html5"></i> HTML</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#js-area" role="tab"><i class="fab fa-js"></i> JS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#css-area" role="tab"><i class="fab fa-css3-alt"></i>CSS</a>
+                        </li>
+                    </ul>
+    
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade show in active">
+                            <div class="text-center">
+                                <br>
+                                <h1>Welcome to Code Sniper</h1>
+                                <p class="lead">Where you can view and play your HTML, CSS and Javascript codes.</p>
+                                <hr>
+                                <p>Click your desired language to start.</p>
+                                <br>
+                            </div>
+                            <div class="container">
+                                    <strong> Cheers!</strong><br>
+                                    <strong> rafaelogic</strong>
+                            </div>
+                        </div>
+                        <div id="html-area" role="tabpanel" class="tab-pane fade"><textarea id="htmlCode" class="code-area"></textarea></div>
+                        <div id="js-area"   role="tabpanel" class="tab-pane fade" ><textarea id="jsCode" class="code-area"></textarea></div>
+                        <div id="css-area"  role="tabpanel" class="tab-pane fade" ><textarea id="cssCode" class="code-area"></textarea></div>
+                    </div>
+                </div>
+
+
+                <footer class="footer">
+                        <div class="text-center">
+                            <p>another puppy of <a href="http://www.d3vt3c.com" target="_blank">D3VT3C Solutions</a> &copy; 2018 - rafaelogic</p>
+                        </div>
+                    </footer>
             </div>
-            <div id="JSArea" class="col-xs-4 container-code">
-                <span><strong>Javascript</strong></span>
-                <textarea id="jsCode"></textarea>
-            </div>
-            <div id="CSSArea" class="col-xs-4 container-code">
-                <span><strong>CSS</strong></span>
-                <textarea id="cssCode" ></textarea>
-            </div>
+            
+         
+
+           
         </div>
 
-        <div id="area2" class="col-xs-12 container-result">
-            <span id="tre"><strong>Result</strong></span>&nbsp;&nbsp;&nbsp; | <a href="#" id="fullscreen" class="label label-primary">fullscreen</a>
-            <iframe id="resultViewer"></iframe>
-        </div>
 
-        <div id="area3" class="col-xs-12">
-            <div class="col-xs-8">
-                <input id="externalCSS" type="text" class="form-control" placeholder="External CSS URL">
-                <input id="externalJS" type="text" class="form-control" placeholder="External JS URL">
-            </div>
-            <div class="col-xs-4">
-                <p>another puppy of <a href="http://www.d3vt3c.com" target="_blank">D3VT3C Solutions</a></p>
-                <p>&copy; 2018 - rafaelogic</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/css/css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/xml/xml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/htmlmixed/htmlmixed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/addon/edit/closebrackets.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/addon/edit/closetag.min.js"></script>
-    <script src="assets/js/core.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/javascript/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/css/css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/xml/xml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/htmlmixed/htmlmixed.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/addon/edit/closebrackets.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/addon/edit/closetag.min.js"></script>
+        <script src="assets/js/core.js"></script>
+    </body>
 </html>
